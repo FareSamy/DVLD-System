@@ -269,4 +269,4 @@ The database features a highly normalized relational schema designed around a **
 
 * **Concept:** An admin lookup screen to manage the core verification exams required for a driving license.
 * **Key Data Fields:** Tracks the three main stages (Vision, Written, and Practical Tests) along with their official descriptions and current dynamic fees.
-* **How it works:** Centralizes exam definitions to ensure consistent setup and uniform pricing across all booking modules.<img width="1518" height="838" alt="ScreenShot(01)" src="https://github.com/user-attachments/assets/27408b41-9d6b-4007-865f-26526af5e12e" />
+* **How it works:** Centralizes exam definitions to ensure consistent setup and uniform pricing across all booking modules.
