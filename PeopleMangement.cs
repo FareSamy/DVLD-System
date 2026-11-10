@@ -29,6 +29,23 @@ namespace DVLD_System
         private void _RefreshPeopleList()
         {
             dataGridViewPeopleList.DataSource = clsPerson.ListPersons();
+            dataGridViewPeopleList.Columns["Gendor"].Visible = false;
+            dataGridViewPeopleList.Columns["NationalityCountryID"].Visible = false;
+            dataGridViewPeopleList.Columns["ImagePath"].Visible = false;
+            dataGridViewPeopleList.Columns["Address"].Visible = false;
+
+            dataGridViewPeopleList.Columns[0].HeaderText = "Preson ID";
+            dataGridViewPeopleList.Columns[1].HeaderText = "National No.";
+            dataGridViewPeopleList.Columns[2].HeaderText = "First Name";
+            dataGridViewPeopleList.Columns[3].HeaderText = "Secound Name";
+            dataGridViewPeopleList.Columns[4].HeaderText = "Third Name";
+            dataGridViewPeopleList.Columns[5].HeaderText = "Last Name";
+            dataGridViewPeopleList.Columns[6].HeaderText = "Date Of Birth";
+            dataGridViewPeopleList.Columns[7].HeaderText = "Gendor";
+
+            dataGridViewPeopleList.Columns[10].HeaderText = "Country";
+    
+
             
         }
         private void comboBoxFilter_SelectedIndexChanged(object sender, EventArgs e)

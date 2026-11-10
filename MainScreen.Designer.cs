@@ -59,8 +59,8 @@
             this.buttonAccSetting = new System.Windows.Forms.Button();
             this.buttonUsers = new System.Windows.Forms.Button();
             this.buttonDrivers = new System.Windows.Forms.Button();
-            this.buttonPeople = new System.Windows.Forms.Button();
             this.buttonApplication = new System.Windows.Forms.Button();
+            this.buttonPeople = new System.Windows.Forms.Button();
             this.contextMenuAccountSetting.SuspendLayout();
             this.contextMenuApplication.SuspendLayout();
             this.SuspendLayout();
@@ -150,7 +150,7 @@
             this.manageTestTypesToolStripMenuItem});
             this.contextMenuApplication.Name = "contextMenuApplication";
             this.contextMenuApplication.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.contextMenuApplication.Size = new System.Drawing.Size(360, 226);
+            this.contextMenuApplication.Size = new System.Drawing.Size(360, 248);
             // 
             // drivingLicenseServicesToolStripMenuItem
             // 
@@ -219,6 +219,7 @@
             this.reliseToolStripMenuItem.Name = "reliseToolStripMenuItem";
             this.reliseToolStripMenuItem.Size = new System.Drawing.Size(494, 42);
             this.reliseToolStripMenuItem.Text = "Realease Detained Driving Licens";
+            this.reliseToolStripMenuItem.Click += new System.EventHandler(this.reliseToolStripMenuItem_Click);
             // 
             // retakeTestToolStripMenuItem
             // 
@@ -242,7 +243,7 @@
             this.manageApllicationToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.ManageApplication3;
             this.manageApllicationToolStripMenuItem.Name = "manageApllicationToolStripMenuItem";
             this.manageApllicationToolStripMenuItem.Size = new System.Drawing.Size(359, 42);
-            this.manageApllicationToolStripMenuItem.Text = "Manage Apllications";
+            this.manageApllicationToolStripMenuItem.Text = "Manage Applications";
             this.manageApllicationToolStripMenuItem.Click += new System.EventHandler(this.manageApllicationToolStripMenuItem_Click);
             // 
             // localDrivingLicensApplicationToolStripMenuItem
@@ -250,8 +251,8 @@
             this.localDrivingLicensApplicationToolStripMenuItem.BackColor = System.Drawing.Color.Gainsboro;
             this.localDrivingLicensApplicationToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.flag;
             this.localDrivingLicensApplicationToolStripMenuItem.Name = "localDrivingLicensApplicationToolStripMenuItem";
-            this.localDrivingLicensApplicationToolStripMenuItem.Size = new System.Drawing.Size(405, 42);
-            this.localDrivingLicensApplicationToolStripMenuItem.Text = "Local Driving Licens Application";
+            this.localDrivingLicensApplicationToolStripMenuItem.Size = new System.Drawing.Size(415, 42);
+            this.localDrivingLicensApplicationToolStripMenuItem.Text = "Local Driving License Application";
             this.localDrivingLicensApplicationToolStripMenuItem.Click += new System.EventHandler(this.localDrivingLicensApplicationToolStripMenuItem_Click);
             // 
             // localDrivingLicensApplicationToolStripMenuItem1
@@ -259,7 +260,7 @@
             this.localDrivingLicensApplicationToolStripMenuItem1.BackColor = System.Drawing.Color.Gainsboro;
             this.localDrivingLicensApplicationToolStripMenuItem1.Image = global::DVLD_System.Properties.Resources.globe;
             this.localDrivingLicensApplicationToolStripMenuItem1.Name = "localDrivingLicensApplicationToolStripMenuItem1";
-            this.localDrivingLicensApplicationToolStripMenuItem1.Size = new System.Drawing.Size(405, 42);
+            this.localDrivingLicensApplicationToolStripMenuItem1.Size = new System.Drawing.Size(415, 42);
             this.localDrivingLicensApplicationToolStripMenuItem1.Text = "International Licens Application";
             this.localDrivingLicensApplicationToolStripMenuItem1.Click += new System.EventHandler(this.localDrivingLicensApplicationToolStripMenuItem1_Click);
             // 
@@ -369,21 +370,6 @@
             this.buttonDrivers.UseVisualStyleBackColor = true;
             this.buttonDrivers.Click += new System.EventHandler(this.buttonDrivers_Click);
             // 
-            // buttonPeople
-            // 
-            this.buttonPeople.BackgroundImage = global::DVLD_System.Properties.Resources.Peopel;
-            this.buttonPeople.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonPeople.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonPeople.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPeople.Location = new System.Drawing.Point(692, 264);
-            this.buttonPeople.Name = "buttonPeople";
-            this.buttonPeople.Size = new System.Drawing.Size(158, 74);
-            this.buttonPeople.TabIndex = 1;
-            this.buttonPeople.Text = "Peopel";
-            this.buttonPeople.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPeople.UseVisualStyleBackColor = true;
-            this.buttonPeople.Click += new System.EventHandler(this.buttonPeople_Click);
-            // 
             // buttonApplication
             // 
             this.buttonApplication.BackgroundImage = global::DVLD_System.Properties.Resources.App264;
@@ -399,6 +385,21 @@
             this.buttonApplication.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonApplication.UseVisualStyleBackColor = true;
             this.buttonApplication.Click += new System.EventHandler(this.buttonApplication_Click);
+            // 
+            // buttonPeople
+            // 
+            this.buttonPeople.BackgroundImage = global::DVLD_System.Properties.Resources.Peopel;
+            this.buttonPeople.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonPeople.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPeople.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPeople.Location = new System.Drawing.Point(692, 264);
+            this.buttonPeople.Name = "buttonPeople";
+            this.buttonPeople.Size = new System.Drawing.Size(158, 74);
+            this.buttonPeople.TabIndex = 1;
+            this.buttonPeople.Text = "People";
+            this.buttonPeople.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonPeople.UseVisualStyleBackColor = true;
+            this.buttonPeople.Click += new System.EventHandler(this.buttonPeople_Click);
             // 
             // MainScreen
             // 
@@ -426,7 +427,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonApplication;
-        private System.Windows.Forms.Button buttonPeople;
         private System.Windows.Forms.Button buttonDrivers;
         private System.Windows.Forms.Button buttonUsers;
         private System.Windows.Forms.Button buttonAccSetting;
@@ -457,6 +457,7 @@
         private System.Windows.Forms.ToolStripMenuItem manageDetainLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem detsinLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relaseDetainedLicenseToolStripMenuItem;
+        private System.Windows.Forms.Button buttonPeople;
     }
 }
 

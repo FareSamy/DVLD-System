@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>traffic-cone.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -196,6 +199,12 @@
     </Compile>
     <Compile Include="SchudleTest.Designer.cs">
       <DependentUpon>SchudleTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowUserDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowUserDetails.Designer.cs">
+      <DependentUpon>ShowUserDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="StreetTest.cs">
       <SubType>Form</SubType>
@@ -394,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ShowPersonDetails.resx">
       <DependentUpon>ShowPersonDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowUserDetails.resx">
+      <DependentUpon>ShowUserDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StreetTest.resx">
       <DependentUpon>StreetTest.cs</DependentUpon>
@@ -743,6 +755,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\app364.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.ico" />
+    <Content Include="traffic-cone.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

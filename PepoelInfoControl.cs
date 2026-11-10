@@ -64,8 +64,7 @@ namespace DVLD_System
             labelResultID.Text = _Person.ID.ToString();
             label1ResultFullName.Text = _Person.FullName().ToString();
             labelResultNationalNo.Text = _Person.NationalNum.ToString();
-            //labelResultGender.Text = _Person.Gendor.ToString();
-            labelResultEmail.Text = _Person.Email.ToString();
+            labelResultEmail.Text = _Person.Email;
             labelResultAddress.Text = _Person.Address.ToString();
             labelResultDate.Text = _Person.DateOfBirth.Date.ToShortDateString();
             labelResultPhone.Text = _Person.Phone.ToString();

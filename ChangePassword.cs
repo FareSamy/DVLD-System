@@ -86,7 +86,9 @@ namespace DVLD_System
         }
         private void _CurrentPasswordValidation(object sender, CancelEventArgs e)
         {
-            if (textBoxCurrentPassword.Text != _User.Password)
+            string HashedPassword = clsGlobal.ComputeHash(textBoxCurrentPassword.Text);
+            
+            if (HashedPassword != _User.Password)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(textBoxCurrentPassword, "Wrong password");
@@ -101,8 +103,9 @@ namespace DVLD_System
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
-          
-            _User.Password = textBoxComfirmPassword.Text;
+            string HashedPassword = clsGlobal.ComputeHash(textBoxComfirmPassword.Text);
+            _User.Password = HashedPassword;
+            //_User.Password = textBoxComfirmPassword.Text;
 
             if (_User.Save())
             {

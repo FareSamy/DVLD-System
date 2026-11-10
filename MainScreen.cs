@@ -68,8 +68,9 @@ namespace DVLD_System
         private void cuToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            
-            ShowPersonDetails frm = new ShowPersonDetails(clsGlobal.CurrentUser.PersonID);
+
+            //ShowPersonDetails frm = new ShowPersonDetails(clsGlobal.CurrentUser.PersonID);
+            ShowUserDetails frm = new ShowUserDetails(clsGlobal.CurrentUser.PersonID); 
             frm.ShowDialog();
             
 
@@ -154,6 +155,12 @@ namespace DVLD_System
         private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LocalDrivingLicensApplication frm = new LocalDrivingLicensApplication();
+            frm.ShowDialog();
+        }
+
+        private void reliseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ReleaseDetainedLicense frm = new ReleaseDetainedLicense();
             frm.ShowDialog();
         }
     }

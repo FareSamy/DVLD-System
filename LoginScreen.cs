@@ -1,5 +1,6 @@
 ﻿using DVLD_BusinessLayer;
 using System;
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,27 +38,28 @@ namespace DVLD_System
         {
             string UserName = textBoxUserName.Text;
             string Password = textBoxPassword.Text;
-            clsUser User = clsUser.Find(UserName);
-            clsGlobal.CurrentUser = User;
+            string HashedPassword = clsGlobal.ComputeHash(Password);
             
-            if (User != null && User.UserName == textBoxUserName.Text && User.Password == textBoxPassword.Text)
+            clsUser User = clsUser.Find(UserName);
+            //clsGlobal.CurrentUser = User;
+            
+            if (User != null && User.UserName == textBoxUserName.Text && User.Password == HashedPassword)
             {
                 if (User.IsActive)
                 {
                     if (checkBoxRememberMe.Checked)
                     {
-                        Properties.Settings.Default.UserName = textBoxUserName.Text.Trim();
-                        Properties.Settings.Default.Password = textBoxPassword.Text.Trim();
-                        Properties.Settings.Default.IsRemembered = true;
+
+                        SaveOrClearRegistryCredentials(UserName, Password, true);
+                        clsGlobal.CurrentUser = User;
                     }
                     else
                     {
-                        Properties.Settings.Default.UserName = "";
-                        Properties.Settings.Default.Password = "";
-                        Properties.Settings.Default.IsRemembered = false;
+                       
+                        SaveOrClearRegistryCredentials(UserName, Password, false);
+                        clsGlobal.CurrentUser = User;
                     }
-                    Properties.Settings.Default.Save();
-                    clsGlobal.CurrentUser = User;
+                   
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
@@ -73,9 +75,51 @@ namespace DVLD_System
             }
 
         }
+        private void SaveOrClearRegistryCredentials(string UserName, string Password, bool IsRemmemberd)
+        {
+            string PathKey = @"HKEY_CURRENT_USER\SOFTWARE\DVLD_SYSTEM";
+
+            try     
+            {
+                if (IsRemmemberd)
+                {
+                    Registry.SetValue(PathKey, "UserName", UserName);
+                    Registry.SetValue(PathKey, "Password", Password);
+                }
+                else
+                {
+                    using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\DVLD_SYSTEM", true))
+                    {
+                        if (key != null)
+                        {
+                            key.DeleteValue("UserName", false);
+                            key.DeleteValue("Password", false);
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Registry Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void LoginScreen_Load(object sender, EventArgs e)
         {
+            string KeyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD_SYSTEM";
+            string SavedUserName = Registry.GetValue(KeyPath,"UserName", null) as string;
+            string SavedPassword = Registry.GetValue(KeyPath,"Password", null) as string;
 
+            if (SavedUserName != null || SavedPassword != null)
+            {
+                textBoxPassword.Text = SavedPassword;
+                textBoxUserName.Text = SavedUserName;
+                checkBoxRememberMe.Checked = true;
+            }
+            else
+            {
+                checkBoxRememberMe.Checked = false;
+            }
         }
     }
 }

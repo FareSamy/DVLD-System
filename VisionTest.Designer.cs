@@ -53,11 +53,11 @@
             this.labelVisionTest.AutoSize = true;
             this.labelVisionTest.Font = new System.Drawing.Font("Tahoma", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVisionTest.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelVisionTest.Location = new System.Drawing.Point(235, 3);
+            this.labelVisionTest.Location = new System.Drawing.Point(244, 9);
             this.labelVisionTest.Name = "labelVisionTest";
-            this.labelVisionTest.Size = new System.Drawing.Size(548, 45);
+            this.labelVisionTest.Size = new System.Drawing.Size(525, 45);
             this.labelVisionTest.TabIndex = 44;
-            this.labelVisionTest.Text = "VISION TESET APPOIMENTS";
+            this.labelVisionTest.Text = "VISION TEST APPOIMENTS";
             // 
             // labelAppoiments
             // 
@@ -106,13 +106,13 @@
             this.editToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(190, 90);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 68);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.edit;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(189, 32);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(135, 32);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -120,7 +120,7 @@
             // 
             this.takeTestToolStripMenuItem.Image = global::DVLD_System.Properties.Resources.info;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(189, 32);
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(135, 32);
             this.takeTestToolStripMenuItem.Text = "Take Test";
             this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 

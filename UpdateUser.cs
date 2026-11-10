@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace DVLD_System
 {
@@ -29,8 +30,7 @@ namespace DVLD_System
             {
                 labelResultUserID.Text = _User.UserID.ToString();
                 textBoxUserName.Text = _User.UserName;
-                textBoxPassword.Text = _User.Password;
-                textBoxComfirmPassword.Text = _User.Password;
+            
                 if (_User.IsActive == true)
                 {
                     checkBoxIsActive.Checked = true;
@@ -101,14 +101,22 @@ namespace DVLD_System
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (textBoxPassword.Text != textBoxComfirmPassword.Text)
+            if (textBoxPassword.Text != "")
             {
-                errorProvider1.SetError(textBoxComfirmPassword, "Password Confirmation does not match!");
-                MessageBox.Show("Please confirm your password correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (textBoxPassword.Text != textBoxComfirmPassword.Text)
+                {
+                    errorProvider1.SetError(textBoxComfirmPassword, "Password Confirmation does not match!");
+                    MessageBox.Show("Please confirm your password correctly.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    string HashedPassword = clsGlobal.ComputeHash(textBoxComfirmPassword.Text);
+                    _User.Password = HashedPassword;
+                }
             }
             _User.UserName = textBoxUserName.Text;
-            _User.Password = textBoxComfirmPassword.Text;
+          
             if (checkBoxIsActive.Checked)
             {
                 _User.IsActive = true;
